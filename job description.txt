@@ -1,0 +1,13 @@
+Job Title: Full Stack Python Developer
+Description:
+We are seeking a software engineer with a Bachelor's degree in Computer Science or related field. We require at least 3 years of experience in building scalable web applications.
+
+Required Skills:
+- Strong proficiency in Python (Django or Flask).
+- Experience with front-end frameworks like React or Vue.js.
+- Proficiency in SQL databases (PostgreSQL or MySQL) and RESTful API development.
+
+Responsibilities:
+- Write clean, maintainable code and unit tests.
+- Collaborate with cross-functional teams to define and ship new features.
+- Troubleshoot and debug applications for performance optimization.

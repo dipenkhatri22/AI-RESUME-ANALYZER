@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-4 fw-bold">AI Resume Analyzer & Generator</h1>
+    <p class="lead text-muted mb-5">Optimize your resume for software companies with AI-driven insights.</p>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="fas fa-user-astronaut fa-3x text-primary mb-3"></i>
+                    <h3>Candidate</h3>
+                    <p>Analyze your resume against job descriptions and get recommendations.</p>
+                    <a href="{{ url_for('user_view') }}" class="btn btn-primary">Start Analysis</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="fas fa-magic fa-3x text-warning mb-3"></i>
+                    <h3>Generator</h3>
+                    <p>Build a professional resume from scratch or improve an existing one.</p>
+                    <a href="{{ url_for('generator_view') }}" class="btn btn-warning">Create Resume</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <i class="fas fa-user-shield fa-3x text-danger mb-3"></i>
+                    <h3>Admin</h3>
+                    <p>Manage candidate data and view dashboard analytics.</p>
+                    <a href="{{ url_for('admin_login_view') }}" class="btn btn-danger">Admin Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

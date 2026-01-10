@@ -1,0 +1,6 @@
+pandas
+flask
+nltk
+pymysql
+pdfminer3
+textblob

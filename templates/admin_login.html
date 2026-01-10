@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5 login-container">
+    <div class="card shadow">
+        <div class="card-header text-center">
+            <h4>Admin Login</h4>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="adminUser">Username</label>
+                <input type="text" id="adminUser" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="adminPass">Password</label>
+                <input type="password" id="adminPass" class="form-control">
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary" onclick="loginAdmin()">Login</button>
+            </div>
+            <div id="login-error" class="text-danger text-center mt-3 d-none">Invalid Credentials</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
