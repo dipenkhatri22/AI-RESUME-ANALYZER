@@ -1,15 +1,24 @@
+/* =========================================
+   BASE STYLES (Your Existing Styles)
+   ========================================= */
+
 body {
     background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
 }
 
 .card {
     border: none;
     border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     transition: transform 0.2s;
+    background: #fff;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
 .navbar-brand {
@@ -19,4 +28,244 @@ body {
 
 .login-container {
     max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   DASHBOARD & ANALYTICS STYLES (New)
+   ========================================= */
+
+/* Privacy Toggle Switch */
+.privacy-wrapper {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+    border-left: 5px solid #e74c3c; /* Red indicator for sensitive mode */
+}
+
+.privacy-label {
+    font-weight: bold;
+    margin-right: 15px;
+    color: #444;
+    font-size: 1.1em;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+    background-color: #e74c3c; /* Red when active (Privacy ON) */
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Analytics Grid Layout */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 width for Chart, 1/3 for List */
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Responsive Grid for mobile */
+@media (max-width: 768px) {
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+/* High Potential List */
+.high-potential-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.high-potential-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.high-potential-item:hover {
+    background-color: #f9f9f9;
+    padding-left: 5px; /* Subtle movement */
+    padding-right: 5px;
+    border-radius: 4px;
+}
+
+.score-badge {
+    background-color: #27ae60;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+/* =========================================
+   GENERATOR & AI BUTTONS (New)
+   ========================================= */
+
+.input-group-with-ai {
+    margin-bottom: 20px;
+}
+
+.input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.ai-optimize-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.ai-optimize-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(118, 75, 162, 0.4);
+    filter: brightness(110%);
+}
+
+.ai-optimize-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* =========================================
+   SCORE BREAKDOWN STYLES (User Results)
+   ========================================= */
+
+.score-breakdown {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.score-item {
+    flex: 1;
+    min-width: 120px; /* Ensure minimum width */
+    background: #f8f9fa;
+    padding: 15px 10px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e9ecef;
+}
+
+.score-val {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #2980b9;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.score-label {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Semantic Score specific color override to distinguish it */
+.score-semantic .score-val {
+    color: #8e44ad; /* Purple for AI/Semantic score */
+}
+
+/* =========================================
+   UTILITY & LOADER
+   ========================================= */
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Result Section Fade In */
+#result-container {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

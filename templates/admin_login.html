@@ -12,8 +12,14 @@
             </div>
             <div class="mb-3">
                 <label for="adminPass">Password</label>
-                <input type="password" id="adminPass" class="form-control">
+                <div class="input-group">
+                    <input type="password" id="adminPass" class="form-control">
+                    <span class="input-group-text" style="cursor:pointer;" onclick="togglePassword(this)">
+                        <i class="fa fa-eye"></i>
+                    </span>
+                </div>
             </div>
+
             <div class="d-grid">
                 <button class="btn btn-primary" onclick="loginAdmin()">Login</button>
             </div>

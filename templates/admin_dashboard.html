@@ -1,31 +1,85 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h2>Admin Dashboard</h2>
-    <div>
-        <button class="btn btn-success me-2" onclick="window.location.href='/api/download'">Download CSV</button>
-        <button class="btn btn-danger" onclick="logout()">Logout</button>
-    </div>
-</div>
 
-<div class="row mb-4">
-    <div class="col-md-6">
-        <div class="card p-3"><canvas id="fieldChart"></canvas></div>
+<div class="container mt-4">
+    <!-- Back to Home Button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Admin Dashboard</h1>
+        <a href="/" class="btn btn-outline-danger">Logout / Home</a>
     </div>
-    <div class="col-md-6">
-        <div class="card p-3"><canvas id="levelChart"></canvas></div>
-    </div>
-</div>
 
-<div class="card shadow-sm">
-    <div class="card-body">
-        <h5>Candidate Data</h5>
+    <!-- Privacy Toggle Section -->
+    <div class="privacy-wrapper">
+        <span class="privacy-label">🛡️ Privacy / Anonymize Mode</span>
+        <label class="switch">
+            <label for="privacyToggle" class="me-2">Enable</label>
+            <input type="checkbox" id="privacyToggle">
+            <span class="slider"></span>
+        </label>
+        <small style="margin-left: 15px; color: #666;">Masks PII for secure review</small>
+    </div>
+
+    <!-- Analytics Section -->
+    <div class="analytics-grid">
+        <!-- Skills Gap Chart -->
+        <div class="card p-3">
+            <div class="card-header">
+                <h3>📊 Skill Gap Analysis</h3>
+            </div>
+            <div style="position: relative; height:300px; width:100%">
+                <canvas id="skillsChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- High Potential Candidates -->
+        <div class="card p-3">
+            <div class="card-header">
+                <h3>🚀 Rising Talent (Juniors > 80)</h3>
+            </div>
+            <ul class="high-potential-list" id="highPotentialList">
+                <li class="text-center text-muted mt-3">Loading analytics...</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Existing Charts -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card p-3">
+                <h5>Candidates by Field</h5>
+                <canvas id="fieldChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-3">
+                <h5>Candidates by Level</h5>
+                <canvas id="levelChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate Database Table -->
+    <div class="card p-3">
+        <h3>Candidate Database</h3>
         <div class="table-responsive">
-            <table class="table table-hover">
-                <thead><tr><th>Name</th><th>Email</th><th>Score</th><th>Field</th><th>Level</th><th>Date</th></tr></thead>
-                <tbody id="user-table-body"></tbody>
+            <table class="table table-hover mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Score</th>
+                        <th>Predicted Field</th>
+                        <th>Level</th>
+                        <th>Timestamp</th>
+                        <th>Action</th> <!-- NEW COLUMN HEADER -->
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <tr><td colspan="7" class="text-center">Loading data...</td></tr>
+                </tbody>
             </table>
         </div>
     </div>
 </div>
+
 {% endblock %}
