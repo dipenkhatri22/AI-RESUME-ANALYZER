@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="container mt-4">
-    <h2>Resume Generator</h2>
+    <!-- NEW: Back to Home Button -->
+    <a href="/" class="btn btn-outline-secondary mb-3">← Back to Home</a>
+
+    <h2 class="mb-4">Resume Generator</h2>
+    
     <div class="row">
+        <!-- Left Column: Controls -->
         <div class="col-md-4">
             <div class="card p-3 mb-3">
                 <h5>1. Upload & Parse</h5>
@@ -11,32 +17,76 @@
                 <button class="btn btn-secondary w-100" onclick="handleGeneratorUpload()">Parse PDF</button>
                 <div class="gen-loader mt-2 text-center d-none">Loading...</div>
             </div>
+
             <div class="card p-3 mb-3">
                 <h5>2. Quick Report</h5>
                 <div id="genAnalysisResult" class="d-none">
                     <p>Score: <strong id="gen_res_score">0</strong>/100</p>
                     <p>Field: <strong id="gen_res_field">General</strong></p>
-                    <p>Rec Skills: <div id="gen_res_skills"></div></p>
+                    <p>Rec Skills: <div id="gen_res_skills" class="mt-2"></div></p>
                 </div>
             </div>
+
             <div class="card p-3">
                 <h5>3. Actions</h5>
                 <button class="btn btn-info w-100 mb-2" onclick="analyzeGeneratorResume()">Re-Analyze Text</button>
                 <button class="btn btn-success w-100" onclick="downloadGeneratorPDF()">Download PDF</button>
             </div>
         </div>
+
+        <!-- Right Column: Form Inputs -->
         <div class="col-md-8">
             <div class="card p-3">
-                <div class="mb-2"><label for="gen_name">Name</label><input type="text" id="gen_name" class="form-control"></div>
-                <div class="mb-2"><label for="gen_email">Email</label><input type="text" id="gen_email" class="form-control"></div>
-                <div class="mb-2"><label for="gen_mobile">Mobile</label><input type="text" id="gen_mobile" class="form-control"></div>
-                <div class="mb-2"><label for="gen_summary">Summary</label><textarea id="gen_summary" class="form-control" rows="3"></textarea></div>
-                <div class="mb-2"><label for="gen_experience">Experience</label><textarea id="gen_experience" class="form-control" rows="3"></textarea></div>
-                <div class="mb-2"><label for="gen_education">Education</label><textarea id="gen_education" class="form-control" rows="3"></textarea></div>
-                <div class="mb-2"><label for="gen_projects">Projects</label><textarea id="gen_projects" class="form-control" rows="3"></textarea></div>
-                <div class="mb-2"><label for="gen_skills">Skills</label><textarea id="gen_skills" class="form-control" rows="3"></textarea></div>
+                <div class="mb-2">
+                    <label for="gen_name">Name</label>
+                    <input type="text" id="gen_name" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <label for="gen_email">Email</label>
+                    <input type="text" id="gen_email" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <label for="gen_mobile">Mobile</label>
+                    <input type="text" id="gen_mobile" class="form-control">
+                </div>
+
+                <!-- NEW: AI Optimized Summary Field -->
+                <div class="input-group-with-ai mb-2">
+                    <div class="input-header">
+                        <label for="gen_summary" class="mb-0">Summary</label>
+                        <button type="button" class="ai-optimize-btn" onclick="optimizeField('gen_summary')">
+                            ✨ Optimize with AI
+                        </button>
+                    </div>
+                    <textarea id="gen_summary" class="form-control" rows="3"></textarea>
+                </div>
+
+                <!-- NEW: AI Optimized Experience Field -->
+                <div class="input-group-with-ai mb-2">
+                    <div class="input-header">
+                        <label for="gen_experience" class="mb-0">Experience</label>
+                        <button type="button" class="ai-optimize-btn" onclick="optimizeField('gen_experience')">
+                            ✨ Optimize with AI
+                        </button>
+                    </div>
+                    <textarea id="gen_experience" class="form-control" rows="3"></textarea>
+                </div>
+
+                <div class="mb-2">
+                    <label for="gen_education">Education</label>
+                    <textarea id="gen_education" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="mb-2">
+                    <label for="gen_projects">Projects</label>
+                    <textarea id="gen_projects" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="mb-2">
+                    <label for="gen_skills">Skills</label>
+                    <textarea id="gen_skills" class="form-control" rows="3"></textarea>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock %}

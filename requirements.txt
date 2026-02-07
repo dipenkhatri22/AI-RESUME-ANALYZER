@@ -1,6 +1,17 @@
-pandas
 flask
-nltk
+werkzeug
 pymysql
-pdfminer3
-textblob
+redis
+celery
+pandas
+openpyxl
+fpdf
+pymupdf
+spacy
+nltk
+scikit-learn
+
+# --- NEW ADDITIONS FOR SEMANTIC SEARCH & AI ---
+sentence-transformers
+torch
+faiss-cpu
